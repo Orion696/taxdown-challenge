@@ -137,27 +137,7 @@
       "age": "32",
       "taxId": "1",
       "id": 2
-    },
-    {
-      "name": "andres",
-      "surname": "lopez",
-      "age": "32",
-      "taxId": "1",
-      "id": 3
-    },
-    {
-      "name": "Mejia",
-      "surname": "Juliana",
-      "age": "22",
-      "taxId": "4",
-      "id": 4
-    },
-    {
-      "name": "Andres",
-      "surname": "Lopez2",
-      "age": "36",
-      "taxId": "1",
-      "id": 5
     }
+    
   ]
 }

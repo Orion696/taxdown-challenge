@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getTaxForm, submitTaxForm } from '../../api';
+import './TaxForm.css'; 
 
 interface InputField {
   id: string;
@@ -40,8 +41,15 @@ const TaxForm: React.FC = () => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
+    
+    const allFieldsFilled = form.every(field => values[field.id]);
+    if (!allFieldsFilled) {
+      alert('Por favor, rellene todos los campos.');
+      return;
+    }
+
     setIsLoading(true);
-  
+
     submitTaxForm(taxId as string, values)
       .then(response => {
         navigate('/dashboard');
@@ -66,8 +74,8 @@ const TaxForm: React.FC = () => {
   }
 
   return (
-    <div>
-      <h1>Formulario de Impuestos</h1>
+    <div className="form-container">
+      <h2 className="form-title">Formulario para el impuesto {taxId}</h2>
       <form onSubmit={handleSubmit}>
         {form.map(field => (
           <div key={field.id}>
@@ -79,6 +87,7 @@ const TaxForm: React.FC = () => {
                 maxLength={field.maxLength}
                 value={values[field.id] || ''}
                 onChange={event => handleChange(event, field.id)}
+                required
               />
             </label>
           </div>
