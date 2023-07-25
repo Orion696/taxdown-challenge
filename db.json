@@ -2,13 +2,162 @@
   "taxes": [
     {
       "id": "1",
+      "name": "Temporada de impuestos 2023",
+      "year": "2023"
+    },
+    {
+      "id": "2",
+      "name": "Temporada de impuestos 2022",
+      "year": "2022"
+    },
+    {
+      "id": "3",
       "name": "Temporada de impuestos 2021",
       "year": "2021"
     },
     {
-      "id": "2",
+      "id": "4",
       "name": "Temporada de impuestos 2020",
       "year": "2020"
+    }
+  ],
+  "forms": [
+    {
+      "id": "1",
+      "inputFields": [
+        {
+          "id": "name",
+          "label": "Nombre",
+          "placeholder": "Tu primer nombre",
+          "type": "text",
+          "maxLength": 20
+        },
+        {
+          "id": "surname",
+          "label": "Apellido",
+          "placeholder": "Tu apellido",
+          "type": "text",
+          "maxLength": 40
+        },
+        {
+          "id": "age",
+          "label": "Edad",
+          "placeholder": "Tu edad",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "inputFields": [
+        {
+          "id": "name",
+          "label": "Nombre",
+          "placeholder": "Tu primer nombre",
+          "type": "text",
+          "maxLength": 20
+        },
+        {
+          "id": "surname",
+          "label": "Apellido",
+          "placeholder": "Tu apellido",
+          "type": "text",
+          "maxLength": 40
+        },
+        {
+          "id": "age",
+          "label": "Edad",
+          "placeholder": "Tu edad",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "inputFields": [
+        {
+          "id": "name",
+          "label": "Nombre",
+          "placeholder": "Tu primer nombre",
+          "type": "text",
+          "maxLength": 20
+        },
+        {
+          "id": "surname",
+          "label": "Apellido",
+          "placeholder": "Tu apellido",
+          "type": "text",
+          "maxLength": 40
+        },
+        {
+          "id": "age",
+          "label": "Edad",
+          "placeholder": "Tu edad",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "inputFields": [
+        {
+          "id": "name",
+          "label": "Nombre",
+          "placeholder": "Tu primer nombre",
+          "type": "text",
+          "maxLength": 20
+        },
+        {
+          "id": "surname",
+          "label": "Apellido",
+          "placeholder": "Tu apellido",
+          "type": "text",
+          "maxLength": 40
+        },
+        {
+          "id": "age",
+          "label": "Edad",
+          "placeholder": "Tu edad",
+          "type": "number"
+        }
+      ]
+    }
+  ],
+  "submissions": [
+    {
+      "name": "Andres",
+      "surname": "Lopez",
+      "age": "32",
+      "taxId": "1",
+      "id": 1
+    },
+    {
+      "name": "Juliana",
+      "surname": "Mejia",
+      "age": "32",
+      "taxId": "1",
+      "id": 2
+    },
+    {
+      "name": "andres",
+      "surname": "lopez",
+      "age": "32",
+      "taxId": "1",
+      "id": 3
+    },
+    {
+      "name": "Mejia",
+      "surname": "Juliana",
+      "age": "22",
+      "taxId": "4",
+      "id": 4
+    },
+    {
+      "name": "Andres",
+      "surname": "Lopez2",
+      "age": "36",
+      "taxId": "1",
+      "id": 5
     }
   ]
 }
