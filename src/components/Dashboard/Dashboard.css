@@ -1,0 +1,85 @@
+html {
+    height: 100%;
+  }
+  
+  body {
+    height: 100%;
+    margin: 0;
+    background: linear-gradient(to top right, #ffe1d0, lightblue);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding-top: 70px;
+  }
+  
+  
+  .dashboard-table {
+    width: 50%;
+    margin: 50px auto;
+    border-collapse: collapse;
+  }
+  
+  .dashboard-table th,
+  .dashboard-table td {
+    padding: 15px;
+    border: 1px solid #888791;
+    text-align: left;
+  }
+
+  .dashboard-table td {
+    text-align: left;
+    vertical-align: middle;
+    color: #58575c;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+  }
+  
+  
+  .dashboard-table th {
+    background-color: #0fd48e;
+    color: white;
+  }
+  
+  .dashboard-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }  
+  
+  .dashboard-title {
+    text-align: center;
+    font-size: 3rem;
+    color: #0fd48e;
+    text-shadow: 0px 0px 3px rgba(0,0,0,0.5);
+  }
+  
+  .taxes-title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: #3d3a62;
+  }
+  
+  .dashboard-table td a {
+    display: inline-block;
+    padding: 5px 10px;
+    text-decoration: none;
+    background-color: #5a74d0;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    text-align: center;
+    margin: 0 5px;
+  }
+  
+  .dashboard-table td a:hover {
+    background-color: #0056b3;
+  }
+  
+  .dashboard-table td {
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .link-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  

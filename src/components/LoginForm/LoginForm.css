@@ -1,0 +1,82 @@
+body {
+    height: 100%;
+    margin: 0;
+    background: linear-gradient(to top right, #ffe1d0, lightblue);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding-top: 70px;
+  }
+  
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .text-container {
+    margin-right: 20px;
+  }
+  
+  .taxdown-title {
+    font-size: 3rem;
+    color: #0fd48e;
+    margin-left: 40px;
+  }
+  
+  .taxdown-text {
+    margin-left: 40px;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: #3d3a62;
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to top right, #ffe1d0, rgb(212, 234, 241));
+    margin-top: 107px;
+  }
+  
+  .login-form label,
+  .login-form input {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .login-form label {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .login-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .login-form button {
+    width: 53%;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    background-color: #007bff;
+    display: block;
+  }
+  
+  .login-form button:hover {
+    background-color: #0056b3;
+  }
+  

@@ -1,0 +1,14 @@
+{
+  "taxes": [
+    {
+      "id": "1",
+      "name": "Temporada de impuestos 2021",
+      "year": "2021"
+    },
+    {
+      "id": "2",
+      "name": "Temporada de impuestos 2020",
+      "year": "2020"
+    }
+  ]
+}
