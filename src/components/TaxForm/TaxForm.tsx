@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getTaxForm, submitTaxForm } from '../../api';
 import { addSubmission } from '../../store/actions';
+import { BeatLoader } from "react-spinners";
 import './TaxForm.css'; 
 
 interface InputField {
@@ -25,7 +26,8 @@ const TaxForm: React.FC = () => {
   useEffect(() => {
     setIsLoading(true);
     if (taxId) {
-      getTaxForm(taxId)
+      new Promise(resolve => setTimeout(resolve, 200))
+        .then(() => getTaxForm(taxId))
         .then(response => {
           setForm(response.data.inputFields);
         })
@@ -37,6 +39,7 @@ const TaxForm: React.FC = () => {
         });
     }
   }, [taxId]);
+  
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>, fieldId: string) => {
     setValues(prevValues => ({ ...prevValues, [fieldId]: event.target.value }));
@@ -44,16 +47,17 @@ const TaxForm: React.FC = () => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    
+  
     const allFieldsFilled = form.every(field => values[field.id]);
     if (!allFieldsFilled) {
       alert('Por favor, rellene todos los campos.');
       return;
     }
-
+  
     setIsLoading(true);
-
-    submitTaxForm(taxId as string, values)
+  
+    new Promise(resolve => setTimeout(resolve, 2000))
+      .then(() => submitTaxForm(taxId as string, values))
       .then(response => {
         dispatch(addSubmission(taxId as string, response.data));
         navigate('/dashboard');
@@ -68,10 +72,18 @@ const TaxForm: React.FC = () => {
         setIsLoading(false);
       });
   };
+  
 
   if (isLoading) {
-    return <div>Cargando...</div>;
+    return (
+      <div className="spinner-container">
+        <BeatLoader color="#0fd48e" loading={isLoading} size={20} />
+        <div>Cargando...</div>
+      </div>
+    );
   }
+  
+  
 
   if (isSubmitted) {
     return <div>Formulario enviado exitosamente!</div>;

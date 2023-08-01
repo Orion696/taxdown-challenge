@@ -56,3 +56,11 @@ div.form-container {
     font-weight: 700;
   }
   
+  .spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+  }
+  
