@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { getTaxForm, submitTaxForm } from '../../api';
+import { addSubmission } from '../../store/actions';
 import './TaxForm.css'; 
 
 interface InputField {
@@ -18,6 +20,7 @@ const TaxForm: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setIsLoading(true);
@@ -52,6 +55,7 @@ const TaxForm: React.FC = () => {
 
     submitTaxForm(taxId as string, values)
       .then(response => {
+        dispatch(addSubmission(taxId as string, response.data));
         navigate('/dashboard');
         setIsSubmitted(true);
         alert('Datos enviados correctamente');

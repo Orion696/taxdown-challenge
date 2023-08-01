@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import LoginForm from "./components/LoginForm/LoginForm";
 import Dashboard from "./components/Dashboard/Dashboard";
 import TaxForm from "./components/TaxForm/TaxForm";
+import TaxSubmissions from "./components/TaxSubmissions/TaxSubmissions";
 import { RootState } from "./store/reducer";
 
 const App: React.FC = () => {
@@ -14,8 +15,10 @@ const App: React.FC = () => {
       <Route path="/" element={username ? <Dashboard /> : <LoginForm />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/taxes/:taxId/form" element={<TaxForm />} />
+      <Route path="/taxes/:taxId/submissions" element={<TaxSubmissions />} />
     </Routes>
   );
 };
 
 export default App;
+
