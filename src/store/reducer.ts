@@ -1,4 +1,4 @@
-import { ActionTypes, LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, ADD_SUBMISSION,LOAD_SUBMISSIONS,EDIT_SUBMISSION, DELETE_SUBMISSION } from './actions';
+import { ActionTypes, LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, ADD_SUBMISSION,LOAD_SUBMISSIONS,EDIT_SUBMISSION, DELETE_SUBMISSION,LOGOUT } from './actions';
 
 export interface RootState {
   username: string | null;
@@ -58,6 +58,13 @@ const reducer = (state = initialState, action: ActionTypes): RootState => {
         return { ...state, isLoading: false, username: action.payload.username, taxes: action.payload.taxes };
     case LOGIN_FAILURE:
       return { ...state, isLoading: false, error: action.payload.error };
+      case LOGOUT:
+        return {
+          ...state,
+          username: null,
+          isLoading: false,
+          error: null,
+        };
     default:
       return state;
   }

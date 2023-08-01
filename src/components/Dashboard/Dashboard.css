@@ -83,3 +83,25 @@ html {
     justify-content: space-between;
   }
   
+  .logout-button {
+    display: inline-block;
+    padding: 5px 10px;
+    text-decoration: none;
+    background-color: #5a74d0;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    text-align: center;
+    margin: 0 5px;
+    cursor: pointer;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    width: 112px;
+}
+
+  
+  .logout-button:hover {
+    background-color: #0056b3;
+  }
+  

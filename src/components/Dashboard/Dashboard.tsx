@@ -1,17 +1,25 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../../store/actions';
 import { RootState } from '../../store/reducer';
 import './Dashboard.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Dashboard: React.FC = () => {
   const { username, taxes } = useSelector((state: RootState) => ({ username: state.username, taxes: state.taxes }));
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate('/');
+  };
 
   return (
     <div>
-      <h1 className="dashboard-title">Welcome, {username}!</h1>
-      <h3 className="taxes-title">Your active tax seasons:</h3>
+      <h1 className="dashboard-title">Bienvenido, {username}!</h1>
+      <h3 className="taxes-title">Tus temporadas fiscales activas:</h3>
+      <button className="logout-button" onClick={handleLogout}>Cerrar sesión</button>
       <table className="dashboard-table">
         <thead>
           <tr>

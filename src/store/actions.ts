@@ -8,6 +8,12 @@ export const LOAD_SUBMISSIONS = 'LOAD_SUBMISSIONS';
 export const EDIT_SUBMISSION = 'EDIT_SUBMISSION';
 export const DELETE_SUBMISSION = 'DELETE_SUBMISSION';
 
+export const LOGOUT = 'LOGOUT';
+
+interface LogoutAction {
+  type: typeof LOGOUT;
+}
+
 interface EditSubmissionAction {
   type: typeof EDIT_SUBMISSION;
   payload: { taxId: string; submissionId: string; updatedSubmission: any };
@@ -44,7 +50,7 @@ interface LoginFailureAction {
   payload: { error: string };
 }
 
-export type ActionTypes = LoginRequestAction | LoginSuccessAction | LoginFailureAction | AddSubmissionAction | LoadSubmissionsAction | EditSubmissionAction | DeleteSubmissionAction;
+export type ActionTypes = LogoutAction | LoginRequestAction | LoginSuccessAction | LoginFailureAction | AddSubmissionAction | LoadSubmissionsAction | EditSubmissionAction | DeleteSubmissionAction;
 
 export const loginRequest = (username: string, password: string): ActionTypes => ({
   type: LOGIN_REQUEST,
@@ -79,4 +85,8 @@ export const editSubmission = (taxId: string, submissionId: string, updatedSubmi
 export const deleteSubmission = (taxId: string, submissionId: string): ActionTypes => ({
   type: DELETE_SUBMISSION,
   payload: { taxId, submissionId },
+});
+
+export const logout = (): ActionTypes => ({
+  type: LOGOUT,
 });
