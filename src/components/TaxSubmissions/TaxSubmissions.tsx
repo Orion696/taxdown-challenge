@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store/reducer';
 import { editSubmission, deleteSubmission } from '../../store/actions';
 import Modal from 'react-modal';
+import { BeatLoader } from "react-spinners";
 import './TaxSubmissions.css';
 
 const TaxSubmissions: React.FC = () => {
@@ -37,7 +38,9 @@ const TaxSubmissions: React.FC = () => {
   useEffect(() => {
     setIsLoading(true);
     if (taxId) {
-      setIsLoading(false);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
     }
   }, [taxId]);
 
@@ -51,7 +54,12 @@ const TaxSubmissions: React.FC = () => {
   
 
   if (isLoading) {
-    return <div>Cargando...</div>;
+    return (
+      <div className="spinner-container">
+        <BeatLoader color="#26A65B" loading={isLoading} size={20} />
+        <div>Cargando...</div>
+      </div>
+    );
   }
 
   return (
