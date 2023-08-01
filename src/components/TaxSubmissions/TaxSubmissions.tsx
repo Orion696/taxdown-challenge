@@ -56,7 +56,7 @@ const TaxSubmissions: React.FC = () => {
   if (isLoading) {
     return (
       <div className="spinner-container">
-        <BeatLoader color="#26A65B" loading={isLoading} size={20} />
+        <BeatLoader color="#0fd48e" loading={isLoading} size={20} />
         <div>Cargando...</div>
       </div>
     );
