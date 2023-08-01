@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store/reducer';
 import { editSubmission, deleteSubmission } from '../../store/actions';
 import Modal from 'react-modal';
+import './TaxSubmissions.css';
 
 const TaxSubmissions: React.FC = () => {
   const { taxId } = useParams<{ taxId?: string }>();
@@ -54,31 +55,32 @@ const TaxSubmissions: React.FC = () => {
   }
 
   return (
-    <div className="submissions-container">
-      <h2 className="submissions-title">Presentaciones para el impuesto {taxId}</h2>
-
-      <div>
-        <input 
-          type="text" 
-          placeholder="Filtrar por nombre" 
-          value={nameFilter} 
-          onChange={(e) => setNameFilter(e.target.value)}
+    <div>
+      <h1 className="submissions-title">Envíos de formulario para el impuesto {taxId}</h1>
+      <div className="filter-container">
+        <label>Nombre:</label>
+        <input
+          type="text"
+          value={nameFilter}
+          onChange={e => setNameFilter(e.target.value)}
+          className="small-input"
         />
-        <input 
-          type="text" 
-          placeholder="Filtrar por apellido" 
-          value={surnameFilter} 
-          onChange={(e) => setSurnameFilter(e.target.value)}
+        <label>Apellido:</label>
+        <input
+          type="text"
+          value={surnameFilter}
+          onChange={e => setSurnameFilter(e.target.value)}
+          className="small-input"
         />
-        <input 
-          type="number" 
-          placeholder="Filtrar por edad" 
+        <label>Edad:</label>
+        <input
+          type="text"
           value={ageFilter || ''}
-          onChange={(e) => setAgeFilter(e.target.value ? parseInt(e.target.value, 10) : null)}
+          onChange={e => setAgeFilter(e.target.value ? parseInt(e.target.value, 10) : null)}
+          className="small-input"
         />
       </div>
-
-      <table>
+      <table className="sub-table">
         <thead>
           <tr>
             <th>Envío</th>
@@ -96,47 +98,58 @@ const TaxSubmissions: React.FC = () => {
               <td>{submission.surname}</td>
               <td>{submission.age}</td>
               <td>
-                <button onClick={() => handleEdit(submission.id, submission)}>Editar</button>
-                <button onClick={() => dispatch(deleteSubmission(taxId as string, submission.id))}>Eliminar</button>
+                <div className="container-edit">
+                  <button className="btn btn-editar" onClick={() => handleEdit(submission.id, submission)}>Editar</button>
+                  <button className="btn btn-eliminar" onClick={() => dispatch(deleteSubmission(taxId as string, submission.id))}>Eliminar</button>
+                </div>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-
-      {/* Modal for editing */}
-      <Modal isOpen={isModalOpen}>
+      <Link to="/dashboard" className="dashboard-link">Dashboard</Link>
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={handleModalCancel}
+        contentLabel="Editar Presentación"
+        className="modal"
+        overlayClassName="overlay"
+      >
         <h2>Editar Presentación</h2>
-        {modalData.submissionData && (
-          <div>
-            <label>Envío:</label>
-            <input
-              type="text"
-              value={modalData.submissionId}
-              readOnly
-            />
-            <label>Nombre:</label>
-            <input
-              type="text"
-              value={modalData.submissionData.name}
-              onChange={(e) => setModalData((prevData) => ({ ...prevData, submissionData: { ...prevData.submissionData, name: e.target.value } }))}
-            />
-            <label>Apellido:</label>
-            <input
-              type="text"
-              value={modalData.submissionData.surname}
-              onChange={(e) => setModalData((prevData) => ({ ...prevData, submissionData: { ...prevData.submissionData, surname: e.target.value } }))}
-            />
-            <label>Edad:</label>
-            <input
-              type="number"
-              value={modalData.submissionData.age}
-              onChange={(e) => setModalData((prevData) => ({ ...prevData, submissionData: { ...prevData.submissionData, age: parseInt(e.target.value, 10) } }))}
-            />
-            <button onClick={handleModalSave}>Guardar</button>
-            <button onClick={handleModalCancel}>Cancelar</button>
-          </div>
-        )}
+        <form className="edit-form">
+          {modalData.submissionData && (
+            <div>
+              <label>Envío:</label>
+              <input
+                type="text"
+                value={modalData.submissionId}
+                readOnly
+              />
+              <label>Nombre:</label>
+              <input
+                type="text"
+                value={modalData.submissionData.name}
+                onChange={(e) => setModalData((prevData) => ({ ...prevData, submissionData: { ...prevData.submissionData, name: e.target.value } }))}
+              />
+              <label>Apellido:</label>
+              <input
+                type="text"
+                value={modalData.submissionData.surname}
+                onChange={(e) => setModalData((prevData) => ({ ...prevData, submissionData: { ...prevData.submissionData, surname: e.target.value } }))}
+              />
+              <label>Edad:</label>
+              <input
+                type="number"
+                value={modalData.submissionData.age}
+                onChange={(e) => setModalData((prevData) => ({ ...prevData, submissionData: { ...prevData.submissionData, age: parseInt(e.target.value, 10) } }))}
+              />
+              <div className="button-group">
+                <button className="btn btn-save" onClick={handleModalSave}>Guardar</button>
+                <button className="btn btn-cancel" onClick={handleModalCancel}>Cancelar</button>
+              </div>
+            </div>
+          )}
+        </form>
       </Modal>
     </div>
   );
