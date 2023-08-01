@@ -18,7 +18,7 @@ const LoginForm: React.FC = () => {
       return;
     }
   
-    if (username !== 'admin' || password !== 'taxdown') {
+    if (username !== 'usuario' || password !== 'contraseña') {
       alert("Datos de usuario inválido");
       return;
     }
