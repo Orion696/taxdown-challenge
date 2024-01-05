@@ -30,7 +30,7 @@ const LoginForm: React.FC = () => {
     <div className="container">
       <div className="text-container">
         <h1 className="taxdown-title">Taxdown</h1>
-        <p className="taxdown-text">Te ayudamos a gestionar tus impuestos de manera fácil, rapido y segura</p>
+        <p className="taxdown-text">Te ayudamos a gestionar tus impuestos de manera fácil, rápido y segura</p>
       </div>
       <form className="login-form" onSubmit={handleSubmit}>
         <label>
