@@ -127,3 +127,5 @@ explicación técnica detallada de los componentes y lógica implementados en el
 11. Pruebas con Jest y React Testing Library:
     - Se escriben pruebas para componentes y lógica de Redux utilizando Jest y React Testing Library.
     - Se enfocan en probar la funcionalidad esencial y la correcta manipulación del estado.
+
+Hecho por Andres David López Arias 
