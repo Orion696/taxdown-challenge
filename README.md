@@ -7,8 +7,8 @@ Paso 1: Preparación del Entorno
 
 Paso 2: Configuración de la API Falsa
 - Base de Datos y API Local: Utilice `json-server` para simular una API y base de datos locales. Ejecute:
-  `json-server --watch db.json --routes routes.json --port 3001`
-  Esto iniciará un servidor local en el puerto `3001` que sirve como su API falsa.
+  `json-server --watch db.json --routes routes.json --port 4000`
+  Esto iniciará un servidor local en el puerto `4000` que sirve como su API falsa.
 
 Paso 3: Inicio de la Aplicación
 - Iniciar la Aplicación: Ejecute `npm start` desde la raíz del proyecto. Esto compilará y servirá su aplicación en `http://localhost:3000`.
