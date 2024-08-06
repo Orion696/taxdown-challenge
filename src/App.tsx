@@ -6,6 +6,8 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import TaxForm from "./components/TaxForm/TaxForm";
 import TaxSubmissions from "./components/TaxSubmissions/TaxSubmissions";
 import { RootState } from "./store/reducer";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const App: React.FC = () => {
   const { username } = useSelector((state: RootState) => state);
