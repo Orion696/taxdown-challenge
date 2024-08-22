@@ -73,7 +73,7 @@ body {
   background-color: #0fd48e;
 }
 
-.spinner-overlay {
+.spinner-overlay, .alert-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -84,4 +84,20 @@ body {
   justify-content: center;
   align-items: center;
   z-index: 9999;
+}
+
+.alert-overlay .alert {
+  min-width: 300px;
+}
+
+.alert-overlay .btn-outline-success {
+  color: #942424;
+  border-color: #b64d4d;
+  transition: background-color 0.5s ease;
+}
+
+.alert-overlay .btn-outline-success:hover {
+  color: #fff;
+  background-color: #c24343;
+  border-color: #610c06;
 }

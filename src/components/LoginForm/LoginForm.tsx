@@ -8,6 +8,8 @@ import './LoginForm.css';
 const LoginForm: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [alertMessage, setAlertMessage] = useState<string | null>(null);
+  const [alertVariant, setAlertVariant] = useState<'success' | 'danger'>('danger');
   const dispatch = useDispatch();
   const { isLoading, error } = useSelector((state: RootState) => ({ isLoading: state.isLoading, error: state.error }));
 
@@ -15,15 +17,18 @@ const LoginForm: React.FC = () => {
     event.preventDefault();
 
     if (!username || !password) {
-      alert("Por favor ingresar credenciales de acceso");
+      setAlertMessage('Por favor ingresar credenciales de acceso');
+      setAlertVariant('danger');
       return;
     }
 
     if (username !== 'usuario' || password !== 'contraseña') {
-      alert("Datos de usuario inválido");
+      setAlertMessage('Datos de usuario inválido');
+      setAlertVariant('danger');
       return;
     }
 
+    setAlertMessage(null);
     dispatch(loginRequest(username, password));
   };
 
@@ -54,8 +59,6 @@ const LoginForm: React.FC = () => {
           />
         </Form.Group>
         
-        {error && <Alert variant="danger">Error: {error}</Alert>}
-        
         <Button variant="primary" type="submit">
           Iniciar sesión
         </Button>
@@ -63,6 +66,19 @@ const LoginForm: React.FC = () => {
       {isLoading && (
         <div className="spinner-overlay">
           <Spinner animation="border" variant="light" />
+        </div>
+      )}
+      {alertMessage && (
+        <div className="alert-overlay">
+          <Alert variant={alertVariant} onClose={() => setAlertMessage(null)} dismissible>
+            <Alert.Heading>{alertVariant === 'danger' ? 'Error' : 'Éxito'}</Alert.Heading>
+            <p>{alertMessage}</p>
+            <div className="d-flex justify-content-end">
+              <Button onClick={() => setAlertMessage(null)} variant="outline-success">
+                Cerrar
+              </Button>
+            </div>
+          </Alert>
         </div>
       )}
     </div>
